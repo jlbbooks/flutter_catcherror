@@ -16,6 +16,7 @@ class Catcherror {
       WidgetsFlutterBinding.ensureInitialized();
       //runApp(MyApp()) can be passed here
       mainAppCall();
+      log("!!!!!!!!!!!!!!!!!");
       if (postRequestUrl != null) {
         http.post(Uri.parse(postRequestUrl),
             body: {
