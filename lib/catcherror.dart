@@ -16,15 +16,6 @@ class Catcherror {
       WidgetsFlutterBinding.ensureInitialized();
       //runApp(MyApp()) can be passed here
       mainAppCall();
-      log("!!!!!!!!!!!!!!!!!");
-      if (postRequestUrl != null) {
-        http.post(Uri.parse(postRequestUrl),
-            body: {
-              // 'error': error.toString(),
-              // 'stackTrace': stackTrace.toString()
-            },
-            headers: headers);
-      }
     }, (error, stackTrace) {
       //For logging the error in debug
       log("Unhandled Native Exception.", error: error, stackTrace: stackTrace);
