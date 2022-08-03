@@ -67,3 +67,9 @@ An entire explanation of the application as well as the exception is given withi
     - ***headers***: You can pass headers for your post request API here.   
 
 8.  **And that's it!** Your application is ready to capture every unhandled native android exception.
+
+## Screenshots:
+
+![WhatsApp Image 2022-08-04 at 2 24 12 AM](https://user-images.githubusercontent.com/70506653/182710211-c052a89f-afee-4cb0-94e1-bdc97d84b0cd.jpeg)
+![WhatsApp Image 2022-08-04 at 2 24 12 AM (1)](https://user-images.githubusercontent.com/70506653/182710227-f8edadec-9041-4302-8713-cfdbf1111ced.jpeg)
+![WhatsApp Image 2022-08-04 at 2 24 12 AM (2)](https://user-images.githubusercontent.com/70506653/182710258-3cafe05f-5060-4f03-824e-5140f40a9c1f.jpeg)
