@@ -11,6 +11,7 @@ class Catcherror {
     String? postRequestUrl,
     Map<String, String>? headers,
     Function(Object, StackTrace)? onErrorCallBack,
+    Function(Object, StackTrace)? onHttpRequestFailedCallback,
   }) {
     runZonedGuarded(() {
       WidgetsFlutterBinding.ensureInitialized();
@@ -21,12 +22,21 @@ class Catcherror {
       log("Unhandled Native Exception.", error: error, stackTrace: stackTrace);
       //Handling HTTP post request
       if (postRequestUrl != null) {
-        http.post(Uri.parse(postRequestUrl),
-            body: {
-              'error': error.toString(),
-              'stackTrace': stackTrace.toString()
-            },
-            headers: headers);
+        //Runs the http request in another zone to capture the error where url provided is inappropriate.
+        runZonedGuarded(() {
+          http.post(Uri.parse(postRequestUrl),
+              body: {
+                'error': error.toString(),
+                'stackTrace': stackTrace.toString()
+              },
+              headers: headers);
+        }, ((error, stack) {
+          log("Exception in HTTP Post Request. Please re-verify the url provided",
+              error: error, stackTrace: stack);
+          if (onHttpRequestFailedCallback != null) {
+            onHttpRequestFailedCallback(error, stack);
+          }
+        }));
       }
       //If any additional callback to be added on error, can be used for showing Toast Message or Dialog.
       if (onErrorCallBack != null) {

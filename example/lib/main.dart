@@ -4,10 +4,9 @@ import 'package:catcherror/catcherror.dart';
 void main() {
   Catcherror.init(
     () => runApp(const MyApp()),
-    // postRequestUrl: "https://example.com",
-    onErrorCallBack: ((p0, p1) {
-      //
-    }),
+    postRequestUrl: "",
+    onErrorCallBack: ((p0, p1) {}),
+    onHttpRequestFailedCallback: (p0, p1) {},
   );
 }
 
