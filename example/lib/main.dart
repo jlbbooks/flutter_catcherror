@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       builder: (BuildContext context, Widget? child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(
-            textScaleFactor: 1.0,
+            textScaler: const TextScaler.linear(1.0),
           ), //set desired text scale factor here
           child: child!,
         );
